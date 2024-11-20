@@ -39,8 +39,15 @@
     width: 54.06px;
     height: 33px;
   }
+
+  .screen .humburger{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: -35px;
+  } 
   
-  .screen .line {
+  /* .screen .line {
     position: absolute;
     width: 54px;
     height: 3px;
@@ -48,7 +55,7 @@
     left: 0;
   }
   
-  .screen .img {
+  .screen .line-1 {
     position: absolute;
     width: 54px;
     height: 3px;
@@ -62,7 +69,7 @@
     height: 3px;
     top: 30px;
     left: 0;
-  }
+  } */
   
   .screen .frame-2 {
     display: flex;
@@ -101,12 +108,14 @@
     line-height: normal;
   }
   
-  .screen .line-3 {
+
+
+  /* .screen .line-3 {
     position: relative;
     align-self: stretch;
     width: 100%;
-    height: 5px;
-  }
+    height: 10px;
+  } */
   
   .screen .overlap-group-wrapper {
     position: absolute;
