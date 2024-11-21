@@ -442,4 +442,44 @@
     line-height: 25px;
     white-space: nowrap;
   }
+  .hamburger-menu {
+    position: relative;
+  }
+  
+  .hamburger {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .line {
+    width: 30px;
+    height: 3px;
+    background-color: #000;
+    transition: all 0.3s ease;
+  }
+  
+  .menu {
+    display: none; /* 初期状態では非表示 */
+    position: absolute;
+    top: 40px; /* ハンバーガーメニューの下に表示 */
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 5px;
+    width: 200px;
+    z-index: 1000;
+  }
+  
+  .menu a {
+    display: block;
+    padding: 10px;
+    color: #000;
+    text-decoration: none;
+  }
+  
+  .menu a:hover {
+    background-color: #f0f0f0;
+  }
   

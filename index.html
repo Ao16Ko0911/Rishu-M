@@ -23,6 +23,19 @@
           
           <!-- <img class="line-3" src="img/line.png" /> -->
         </div>
+        <div class="hamburger-menu">
+          <div class="hamburger" onclick="toggleMenu()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+          <div class="menu">
+            <a href="#about">このサイトについて</a>
+            <a href="#privacy">プライバシーポリシー</a>
+            <a href="#contact">お問い合わせ</a>
+            <a href="#courses">講義一覧</a>
+          </div>
+        </div>
         <div class="overlap-group-wrapper">
           <div class="overlap-group">
             <div class="default">
@@ -74,5 +87,11 @@
         </div>
       </div>
     </div>
+    <script>
+      function toggleMenu() {
+        const menu = document.querySelector('.menu');
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+      }
+    </script>    
   </body>
 </html>
