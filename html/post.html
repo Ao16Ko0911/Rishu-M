@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="../css/post.css" />
+</head>
+<body>
+  <div class="screen">
+    <div class="wrapper">
+      <!-- ヘッダー -->
+      <header>
+        <div class="header-container">
+          <!-- ハンバーガーメニュー -->
+          <div class="hamburger-menu">
+            <div class="hamburger" onclick="toggleMenu()">
+              <img class="humburger" src="../img/humbuger.png" alt="Menu" />
+            </div>
+            <div class="menu">
+              <a href="#about">このサイトについて</a>
+              <a href="#privacy">プライバシーポリシー</a>
+              <a href="#contact">お問い合わせ</a>
+              <a href="#courses">講義一覧</a>
+            </div>
+          </div>
+
+          <!-- ヘッダーコンテンツ -->
+          <div class="header-content">
+            <h1 class="text-wrapper">RISHU‐M</h1>
+            <p class="text-wrapper-2">～名城大学情報工学部のための口コミサイト～</p>
+          </div>
+        </div>
+
+        <!-- 線 -->
+        <div class="header-line"></div>
+      </header>
+
+      <main class="main">
+        <div class="wrapper">
+            <!-- 投稿フォーム -->
+        <div class="form-container">
+            <label>学年</label>
+            <select>
+              <option>--未選択--</option>
+              <option>1年生</option>
+              <option>2年生</option>
+              <option>3年生</option>
+              <option>4年生</option>
+            </select>
+    
+            <label>講義期間</label>
+            <select>
+              <option>--未選択--</option>
+              <option>前期</option>
+              <option>後期</option>
+            </select>
+    
+            <label>講義一覧</label>
+            <select>
+              <option>--未選択--</option>
+            </select>
+    
+            <label>受講年度</label>
+            <select>
+              <option>--未選択--</option>
+            </select>
+    
+            <label>総合評価</label>
+            <select>
+              <option>--未選択--</option>
+            </select>
+    
+            <label>楽単レベル</label>
+            <select>
+              <option>--未選択--</option>
+            </select>
+    
+            <label>授業の感想や詳細</label>
+            <textarea rows="5"></textarea>
+    
+            <button>投稿</button>
+          </div>
+        </div>
+      </main>
+      <!-- フッター -->
+      <footer>
+        <p>このサイトについて | プライバシーポリシー | お問い合わせ</p>
+        <p>&copy; 名城大学情報工学部 学生</p>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector('.menu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>
