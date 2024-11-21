@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="./css/index.css" />
 </head>
 <body>
   <div class="screen">
@@ -13,7 +13,7 @@
           <!-- ハンバーガーメニュー -->
           <div class="hamburger-menu">
             <div class="hamburger" onclick="toggleMenu()">
-              <img class="humburger" src="../img/humbuger.png" alt="Menu" />
+              <img class="humburger" src="./img/humbuger.png" alt="Menu" />
             </div>
             <div class="menu">
               <a href="#about">このサイトについて</a>
@@ -36,11 +36,11 @@
 
       <!-- メイン部分 -->
       <main class="main-content">
+        <!-- 検索条件セクション -->
         <div class="overlap-group-wrapper">
           <div class="rectangle-wrapper">
             <div class="rectangle"></div>
             <h2 class="text-wrapper-7">検索条件</h2>
-
             <div class="filter-wrapper">
               <div class="filter-item">
                 <label for="grade" class="text-wrapper-4">学年</label>
@@ -52,7 +52,7 @@
                   <option value="4">4年生</option>
                 </select>
               </div>
-
+      
               <div class="filter-item">
                 <label for="term" class="text-wrapper-5">講義期間</label>
                 <select id="term" class="frame-3">
@@ -61,7 +61,7 @@
                   <option value="後期">後期</option>
                 </select>
               </div>
-
+      
               <div class="filter-item">
                 <label for="subject" class="text-wrapper-6">講義一覧</label>
                 <select id="subject" class="frame-3">
@@ -73,13 +73,30 @@
                 </select>
               </div>
             </div>
-
             <button class="search-button" onclick="search()">
               <span class="text-wrapper-8">検索</span>
             </button>
           </div>
         </div>
+      
+        <!-- 口コミセクション -->
+        <div class="review-section">
+          <div class="review-content">
+            <h2 class="review-title">口コミを投稿しよう！</h2>
+            <p class="review-subtitle">実際に授業を受けた感想をお待ちしています。</p>
+            <img class="review-image" src="img/kutikomi.png" alt="口コミイメージ" />
+            <p class="review-description">
+              「この科目どんな授業なんだろう？」「単位が取れるか不安．．．」<br />
+              みんなが持つ悩みをみんなで協力して解決しませんか？
+            </p>
+            <a href="post.html">
+                <button class="review-button">口コミを投稿する</button>
+            </a>
+              
+          </div>
+        </div>
       </main>
+      
 
       <script>
         function search() {

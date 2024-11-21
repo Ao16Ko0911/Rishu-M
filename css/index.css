@@ -1,3 +1,4 @@
+/* 基本スタイル */
 body, h1, p, label, select, textarea, button {
   margin: 0;
   padding: 0;
@@ -95,12 +96,20 @@ header {
   margin-top: 10px;
 }
 
-/* メイン */
+/* メインコンテンツ */
 .main-content {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column; /* 縦並びに変更 */
+  align-items: center; /* センター揃え */
   margin: 0 auto;
+  gap: 40px; /* セクション間の余白 */
+}
+
+/* 検索条件セクション */
+.overlap-group-wrapper {
+  width: 100%;
+  max-width: 850px; /* 横幅を調整 */
+  justify-items: center;
 }
 
 .rectangle-wrapper {
@@ -155,6 +164,60 @@ header {
 }
 
 .search-button:hover {
+  background-color: #0056b3;
+}
+
+/* 口コミセクション */
+.review-section {
+  width: 100%;
+   /* 横幅を検索条件と揃える */
+  background-color: #3c3c3c;
+  color: #ffffff;
+  text-align: center;
+  justify-items: center;
+  padding: 40px 20px;
+  border-radius: 10px; /* 角を丸くする */
+}
+
+.review-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.review-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.review-subtitle {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.review-image {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.review-description {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.review-button {
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.review-button:hover {
   background-color: #0056b3;
 }
 
