@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="./css/post.css" />
 </head>
+
 <body>
   <div class="screen">
     <div class="wrapper">
@@ -40,64 +42,64 @@
         <div class="wrapper">
           <!-- 投稿フォーム -->
           <!-- 投稿フォーム -->
-<div class="form-container">
-  <label>学年</label>
-  <select id="grade" onchange="updateCourseList()">
-    <option>--未選択--</option>
-    <option>1年生</option>
-    <option>2年生</option>
-    <option>3年生</option>
-    <option>4年生</option>
-  </select>
+          <div class="form-container">
+            <label>学年</label>
+            <select id="grade" onchange="updateCourseList()">
+              <option>--未選択--</option>
+              <option>1年生</option>
+              <option>2年生</option>
+              <option>3年生</option>
+              <option>4年生</option>
+            </select>
 
-  <label>講義期間</label>
-  <select id="term" onchange="updateCourseList()">
-    <option>--未選択--</option>
-    <option>前期</option>
-    <option>後期</option>
-  </select>
+            <label>講義期間</label>
+            <select id="term" onchange="updateCourseList()">
+              <option>--未選択--</option>
+              <option>前期</option>
+              <option>後期</option>
+            </select>
 
-  <label>講義一覧</label>
-  <select id="course">
-    <option>--未選択--</option>
-    <!-- 動的に講義が追加されます -->
-  </select>
+            <label>講義一覧</label>
+            <select id="course">
+              <option>--未選択--</option>
+              <!-- 動的に講義が追加されます -->
+            </select>
 
-  <label>受講年度</label>
-  <select id="year">
-    <option>--未選択--</option>
-    <option>2024年度</option>
-    <option>2023年度</option>
-    <option>2022年度</option>
-    <option>2021年度</option>
-    <option>2020年度</option>
-    <option>2019年度</option>
-    <option>2018年度</option>
-  </select>
+            <label>受講年度</label>
+            <select id="year">
+              <option>--未選択--</option>
+              <option>2024年度</option>
+              <option>2023年度</option>
+              <option>2022年度</option>
+              <option>2021年度</option>
+              <option>2020年度</option>
+              <option>2019年度</option>
+              <option>2018年度</option>
+            </select>
 
-  <label>総合評価</label>
-  <select id="rating">
-    <option>--未選択--</option>
-    <option>5 (最高)</option>
-    <option>4</option>
-    <option>3</option>
-    <option>2</option>
-    <option>1 (最低)</option>
-  </select>
+            <label>総合評価</label>
+            <select id="rating">
+              <option>--未選択--</option>
+              <option>5 (最高)</option>
+              <option>4</option>
+              <option>3</option>
+              <option>2</option>
+              <option>1 (最低)</option>
+            </select>
 
-  <label>楽単レベル</label>
-  <select id="ease">
-    <option>--未選択--</option>
-    <option>とても簡単</option>
-    <option>普通</option>
-    <option>難しい</option>
-  </select>
+            <label>楽単レベル</label>
+            <select id="ease">
+              <option>--未選択--</option>
+              <option>とても簡単</option>
+              <option>普通</option>
+              <option>難しい</option>
+            </select>
 
-  <label>授業の感想や詳細</label>
-  <textarea id="feedback" rows="5"></textarea>
+            <label>授業の感想や詳細</label>
+            <textarea id="feedback" rows="5"></textarea>
 
-  <button onclick="handleSubmit()">投稿</button>
-</div>
+            <button onclick="handleSubmit()">投稿</button>
+          </div>
 
         </div>
       </main>
@@ -111,4 +113,5 @@
 
   <script src="./js/post.js"></script>
 </body>
+
 </html>
