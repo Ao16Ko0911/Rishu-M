@@ -52,7 +52,7 @@ header {
 .menu {
   display: none;
   position: absolute;
-  top: 90px;
+  top: 80px;
   left: 0;
   background: #fff;
   border: 1px solid #ccc;
@@ -106,8 +106,8 @@ header {
   background: #fff;
   border-radius: 10px;
   padding: 20px;
-  max-width: 600px;
-  width: 100%;
+  max-width: 850px;
+  width: 80%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 

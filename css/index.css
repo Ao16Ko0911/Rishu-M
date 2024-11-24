@@ -107,14 +107,14 @@ header {
 
 /* 検索条件セクション */
 .overlap-group-wrapper {
-  width: 100%;
+  width: 80%;
   max-width: 850px; /* 横幅を調整 */
   justify-items: center;
 }
 
 .rectangle-wrapper {
   position: relative;
-  width: 850px;
+  width: 100%;
   background-color: #ffffff;
   border-radius: 15px;
   padding: 20px;

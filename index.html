@@ -25,7 +25,9 @@
 
           <!-- ヘッダーコンテンツ -->
           <div class="header-content">
-            <h1 class="text-wrapper">RISHU‐M</h1>
+            <h1 class="text-wrapper">
+              <a href="index.html" style="text-decoration: none; color: inherit;">RISHU‐M</a>
+            </h1>
             <p class="text-wrapper-2">～名城大学情報工学部のための口コミサイト～</p>
           </div>
         </div>
@@ -44,7 +46,7 @@
             <div class="filter-wrapper">
               <div class="filter-item">
                 <label for="grade" class="text-wrapper-4">学年</label>
-                <select id="grade" class="frame-3">
+                <select id="grade" class="frame-3" onchange="updateCourseList()">
                   <option value="">--未選択--</option>
                   <option value="1">1年生</option>
                   <option value="2">2年生</option>
@@ -55,7 +57,7 @@
       
               <div class="filter-item">
                 <label for="term" class="text-wrapper-5">講義期間</label>
-                <select id="term" class="frame-3">
+                <select id="term" class="frame-3" onchange="updateCourseList()">
                   <option value="">--未選択--</option>
                   <option value="前期">前期</option>
                   <option value="後期">後期</option>
@@ -66,10 +68,6 @@
                 <label for="subject" class="text-wrapper-6">講義一覧</label>
                 <select id="subject" class="frame-3">
                   <option value="">--未選択--</option>
-                  <option value="数学">数学</option>
-                  <option value="物理">物理</option>
-                  <option value="化学">化学</option>
-                  <option value="情報">情報</option>
                 </select>
               </div>
             </div>
@@ -96,18 +94,6 @@
           </div>
         </div>
       </main>
-      
-
-      <script>
-        function search() {
-          const grade = document.getElementById('grade').value;
-          const term = document.getElementById('term').value;
-          const subject = document.getElementById('subject').value;
-
-          console.log(`絞り込み条件: 学年=${grade}, 講義期間=${term}, 科目=${subject}`);
-          alert(`絞り込み条件\n学年: ${grade || "未選択"}\n講義期間: ${term || "未選択"}\n科目: ${subject || "未選択"}`);
-        }
-      </script>
 
       <!-- フッター -->
       <footer>
@@ -117,11 +103,6 @@
     </div>
   </div>
 
-  <script>
-    function toggleMenu() {
-      const menu = document.querySelector('.menu');
-      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-    }
-  </script>
+  <script src="./js/index.js"></script>
 </body>
 </html>
