@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>口コミ投稿</title>
+    <script src="script.js" defer></script> <!-- 外部JavaScriptファイルをリンク -->
+</head>
+<body>
+    <h1>口コミを投稿する</h1>
+    
+    <form id="reviewForm" onsubmit="event.preventDefault(); submitReview();">
+        <label for="course_id">教科ID:</label>
+        <input type="number" id="course_id" required><br><br>
+        
+        <label for="user_id">ユーザーID:</label>
+        <input type="number" id="user_id" required><br><br>
+        
+        <label for="rating">評価 (1〜5):</label>
+        <input type="number" id="rating" min="1" max="5" required><br><br>
+        
+        <label for="comment">コメント:</label><br>
+        <textarea id="comment" rows="4" cols="50" required></textarea><br><br>
+        
+        <button type="submit">口コミを送信</button>
+    </form>
+    
+    <h2>口コミ一覧</h2>
+    <div id="reviews">
+        <!-- ここに口コミが表示される -->
+        <p>教科IDを入力して「表示」をクリックしてください。</p>
+    </div>
+    
+    <label for="view_course_id">教科ID:</label>
+    <input type="number" id="view_course_id">
+    <button onclick="fetchReviews()">表示</button>
+</body>
+</html>
