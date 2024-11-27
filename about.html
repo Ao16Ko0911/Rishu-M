@@ -10,32 +10,7 @@
     <div class="screen">
         <div class="wrapper">
             <!-- ヘッダー -->
-            <header>
-                <div class="header-container">
-                    <!-- ハンバーガーメニュー -->
-                    <div class="hamburger-menu">
-                        <div class="hamburger" onclick="toggleMenu()">
-                            <img class="humburger" src="./img/humbuger.png" alt="Menu" />
-                        </div>
-                        <div class="menu">
-                            <a href="about.html">このサイトについて</a>
-                            <a href="policy.html">プライバシーポリシー</a>
-                            <a href="about.html#access">お問い合わせ</a>
-                        </div>
-                    </div>
-
-                    <!-- ヘッダーコンテンツ -->
-                    <div class="header-content">
-                        <h1 class="text-wrapper">
-                            <a href="index.html" style="text-decoration: none; color: inherit;">RISHU‐M</a>
-                        </h1>
-                        <p class="text-wrapper-2">～名城大学情報工学部のための口コミサイト～</p>
-                    </div>
-                </div>
-
-                <!-- 線 -->
-                <div class="header-line"></div>
-            </header>
+            <div id="header"></div>
 
             <!-- メイン部分 -->
             <main class="main-content">
@@ -66,18 +41,14 @@
 
             <!-- フッター -->
             <footer>
-                <p>
-                    <a href="about.html" style="color: inherit">このサイトについて</a> |
-                    <a href="policy.html" style="color: inherit">プライバシーポリシー</a> |
-                    <a href="about.html#access" style="color: inherit">お問い合わせ</a>
-                </p>
-                <p>&copy; 名城大学情報工学部 学生</p>
+                <div id="footer"></div>
             </footer>
 
         </div>
     </div>
 
     <script src="./js/index.js"></script>
+    <script src="./js/parts.js"></script>
 </body>
 
 </html>
