@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./css/mail.css" />
+</head>
+
+<body>
+    <div class="screen">
+        <div class="wrapper">
+            <!-- ヘッダー -->
+            <header>
+                <div class="header-container">
+                    <!-- ハンバーガーメニュー -->
+                    <div class="hamburger-menu">
+                        <div class="hamburger" onclick="toggleMenu()">
+                            <img class="humburger" src="./img/humbuger.png" alt="Menu" />
+                        </div>
+                        <div class="menu">
+                            <a href="about.html">このサイトについて</a>
+                            <a href="policy.html">プライバシーポリシー</a>
+                            <a href="mail.html">お問い合わせ</a>
+                        </div>
+                    </div>
+
+                    <!-- ヘッダーコンテンツ -->
+                    <div class="header-content">
+                        <h1 class="text-wrapper">
+                            <a href="index.html" style="text-decoration: none; color: inherit;">RISHU‐M</a>
+                        </h1>
+                        <p class="text-wrapper-2">～名城大学情報工学部のための口コミサイト～</p>
+                    </div>
+                </div>
+
+                <!-- 線 -->
+                <div class="header-line"></div>
+            </header>
+
+            <!-- メイン部分 -->
+            <main class="main-content">
+                <div class="Form">
+                    <div class="Form-Item">
+                      <p class="Form-Item-Label">
+                        <span class="Form-Item-Label-Required">必須</span>学籍番号
+                      </p>
+                      <input type="text" class="Form-Item-Input" placeholder="例）231200000">
+                    </div>
+                    <div class="Form-Item">
+                      <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>氏名</p>
+                      <input type="text" class="Form-Item-Input" placeholder="例）山田太郎">
+                    </div>
+                    <div class="Form-Item">
+                      <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>メールアドレス</p>
+                      <input type="email" class="Form-Item-Input" placeholder="例）231200000@ie.meijo-u.ac.jp">
+                    </div>
+                    <div class="Form-Item">
+                      <p class="Form-Item-Label isMsg"><span class="Form-Item-Label-Required">必須</span>お問い合わせ内容</p>
+                      <textarea class="Form-Item-Textarea"></textarea>
+                    </div>
+                    <input type="submit" class="Form-Btn" value="送信する" onclick="showMessage(event)">
+                  </div>
+            </main>
+
+            <!-- フッター -->
+            <footer>
+                <p>
+                    <a href="about.html" style="color: inherit">このサイトについて</a> |
+                    <a href="policy.html" style="color: inherit">プライバシーポリシー</a> |
+                    <a href="about.html#access" style="color: inherit">お問い合わせ</a>
+                </p>
+                <p>&copy; 名城大学情報工学部 学生</p>
+            </footer>
+
+        </div>
+    </div>
+
+    <script src="./js/index.js"></script>
+        <script>
+        function showMessage(event) {
+            event.preventDefault(); // フォームのデフォルトの送信を防ぐ
+            alert("送信しました"); // メッセージを表示
+            window.location.reload(); // ページをリロード
+            return false; // フォーム送信をキャンセル
+        }
+    </script>
+</body>
+
+</html>

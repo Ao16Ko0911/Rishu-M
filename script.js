@@ -1,6 +1,6 @@
 // 口コミを投稿する関数
 function submitReview() {
-    const courseId = document.getElementById("course_id").value;
+    const courseId = document.getElementById("course_id").value;//このcourseIdに教科の配列のインデックスを代入したい
     const userId = document.getElementById("user_id").value;
     const rating = document.getElementById("rating").value;
     const comment = document.getElementById("comment").value;
