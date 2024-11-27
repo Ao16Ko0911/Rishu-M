@@ -1,0 +1,40 @@
+<html>
+<head>
+</head>
+<body>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    
+    <div id="g_id_onload"
+        data-client_id="524548971866-qp24jbj4q3ud2gj00cgc7vpfre3fv4r4.apps.googleusercontent.com"
+        data-context="signin"
+        data-ux_mode="popup"
+        data-callback="handleCredentialResponse"
+        data-auto_prompt="false">
+    </div>
+
+    <div class="g_id_signin"
+        data-type="icon"
+        data-shape="square"
+        data-theme="outline"
+        data-text="signin_with"
+        data-size="small">
+    </div>
+
+    <script>
+        function onSignIn(googleUser) {
+            gapi.client.init({use_fedcm: true})
+            var id_token = googleUser.getAuthResponse().id_token;
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '../php/test.php');
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onload = function() {
+                console.log('Signed in as: ' + xhr.responseText);
+            };
+            xhr.send('idtoken=' + id_token);
+            window.location.href = '../php/index.php';
+        }
+        
+    </script>
+</body>
+</html>
+
