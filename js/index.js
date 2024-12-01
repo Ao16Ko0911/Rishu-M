@@ -29,12 +29,15 @@ function toggleMenu() {
     console.log(`絞り込み条件: 学年=${grade}, 講義期間=${term}, 科目=${subject}`);
     alert(`絞り込み条件\n学年: ${grade || "未選択"}\n講義期間: ${term || "未選択"}\n科目: ${subject || "未選択"}`);
   }
+
+  let global_index = 0;  // グローバル変数として定義
   
   // 学年と講義期間に応じて講義一覧を動的に変更
   function updateCourseList() {
     const grade = document.getElementById('grade').value;
     const term = document.getElementById('term').value;
     const courseDropdown = document.getElementById('subject');
+    const MAX_LENGTH = 25; //一つのシーズンの最大の科目数
   
     // 講義データを定義
     const courseData = {
@@ -71,6 +74,23 @@ function toggleMenu() {
         courseDropdown.appendChild(option);
       });
     }
+    //配列の最大値を取得
+    const index = MAX_LENGTH * (grade -1);
+    if(term == "後期"){
+      index += MAX_LENGTH;
+    }
+    global_index = index;
+
+  }
+
+  function updatesubject() {
+    const index = global_index;
+
+    //ドロップダウンリスト内で現在選択されているオプションのインデックスを加算
+    index += document.getElementById('subject').selectedIndex - 1; // 1番目のオプションを除いたインデックス（0から始まる）
+
+  // index をローカルストレージに保存
+  localStorage.setItem('selectedCourseIndex', index);
   }
   
   
