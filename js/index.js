@@ -28,6 +28,10 @@ function toggleMenu() {
   
     console.log(`絞り込み条件: 学年=${grade}, 講義期間=${term}, 科目=${subject}`);
     alert(`絞り込み条件\n学年: ${grade || "未選択"}\n講義期間: ${term || "未選択"}\n科目: ${subject || "未選択"}`);
+
+    // subject.html に遷移
+    window.location.href = "./subject.html";
+
   }
 
   let global_index = 0;  // グローバル変数として定義
