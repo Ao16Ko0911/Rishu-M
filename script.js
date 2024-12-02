@@ -1,8 +1,14 @@
 // 口コミを投稿する関数
 function submitReview() {
-        // ローカルストレージから courseId を取得
-    const courseId = localStorage.getItem('selectedCourseIndex');
-    //const courseId = document.getElementById("course_id").value;//このcourseIdに教科の配列のインデックスを代入したい
+
+    // URLからクエリパラメータを取得
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedCourseIndex = urlParams.get('selectedCourseIndex');
+    courseId = selectedCourseIndex;
+
+    // courseId の値を確認
+    alert("取得した courseId: " + courseId);
+    
     const userId = document.getElementById("user_id").value;//こいつはいったんそのまま
     const rating = document.getElementById("rating").value;
     const comment = document.getElementById("comment").value;

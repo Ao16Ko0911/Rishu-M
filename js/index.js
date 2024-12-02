@@ -29,8 +29,12 @@ function toggleMenu() {
     console.log(`絞り込み条件: 学年=${grade}, 講義期間=${term}, 科目=${subject}`);
     alert(`絞り込み条件\n学年: ${grade || "未選択"}\n講義期間: ${term || "未選択"}\n科目: ${subject || "未選択"}`);
 
+    let index = global_index + document.getElementById('subject').selectedIndex - 1;
+    // index をアラートで表示
+    alert("検索結果 index: " + index);
+
     // subject.html に遷移
-    window.location.href = "./subject.html";
+    window.location.href = `./subject.html?selectedCourseIndex=${index}`;
 
   }
 
@@ -87,14 +91,5 @@ function toggleMenu() {
 
   }
 
-  function updatesubject() {
-    const index = global_index;
-
-    //ドロップダウンリスト内で現在選択されているオプションのインデックスを加算
-    index += document.getElementById('subject').selectedIndex - 1; // 1番目のオプションを除いたインデックス（0から始まる）
-
-  // index をローカルストレージに保存
-  localStorage.setItem('selectedCourseIndex', index);
-  }
   
   
