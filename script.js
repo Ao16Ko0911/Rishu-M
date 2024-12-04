@@ -4,6 +4,7 @@ function submitReview() {
     // URLからクエリパラメータを取得
     const urlParams = new URLSearchParams(window.location.search);
     const selectedCourseIndex = urlParams.get('selectedCourseIndex');
+    console.log("取得した index:", selectedCourseIndex);
     courseId = selectedCourseIndex;
 
     // courseId の値を確認
@@ -57,7 +58,7 @@ function fetchReviews() {
         return;
     }
 
-    fetch(`http://localhost:5000/reviews/${courseId}`, {
+    fetch(`http://192.168.92.47:5000/reviews/${courseId}`, {
         method: 'GET',
     })
     .then(response => response.json()) //ここでjson形式のデータをjavascriptのオブジェクトに変換
