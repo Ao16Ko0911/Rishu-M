@@ -89,6 +89,6 @@ function fetchReviews() {
     })
     .catch(error => {
         console.error('Error:', error);
-        alert("口コミの取得中にエラーが発生しました");
+        alert("口コミの取得中にエラーが発生しました" + error.message);
     });
 }
