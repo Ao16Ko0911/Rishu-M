@@ -1,11 +1,25 @@
+// ページが読み込まれたときに実行したい処理を設定
+window.addEventListener('DOMContentLoaded', (event) => {
+        // URLからクエリパラメータを取得
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedCourseName = urlParams.get('selectedCourseName');
+          // course_name_display に選択された科目名を表示
+        const courseNameDisplay = document.getElementById('course_name_display');
+        courseNameDisplay.textContent = `科目名: ${selectedCourseName}`;  // 科目名を表示
+
+});
+
 // 口コミを投稿する関数
 function submitReview() {
 
     // URLからクエリパラメータを取得
     const urlParams = new URLSearchParams(window.location.search);
     const selectedCourseIndex = urlParams.get('selectedCourseIndex');
+    const selectedCourseName = urlParams.get('selectedCourseName');
     console.log("取得した index:", selectedCourseIndex);
+    console.log(`選択された科目名: ${selectedCourseName}`);
     courseId = selectedCourseIndex;
+    courseName = selectedCourseName;
 
     // courseId の値を確認
     alert("取得した courseId: " + courseId);
@@ -58,7 +72,7 @@ function fetchReviews() {
         return;
     }
 
-    fetch(`http://192.168.0.3:5000/reviews/${courseId}`, {
+    fetch(`http://127.0.0.1:5000/reviews/${courseId}`, {
         method: 'GET',
     })
     .then(response => response.json()) //ここでjson形式のデータをjavascriptのオブジェクトに変換

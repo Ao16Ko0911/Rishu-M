@@ -24,17 +24,21 @@ function toggleMenu() {
   function search() {
     const grade = document.getElementById('grade').value;
     const term = document.getElementById('term').value;
-    const subject = document.getElementById('subject').value;
+    const subjectDropdown = document.getElementById('subject');
+    const subject = subjectDropdown.value; // 選択された科目名（value）を取得
+    const subjectText = subjectDropdown.options[subjectDropdown.selectedIndex].text; // 選択された科目のテキストを取得
+
   
     console.log(`絞り込み条件: 学年=${grade}, 講義期間=${term}, 科目=${subject}`);
     alert(`絞り込み条件\n学年: ${grade || "未選択"}\n講義期間: ${term || "未選択"}\n科目: ${subject || "未選択"}`);
 
     let index = global_index + document.getElementById('subject').selectedIndex - 1;
-    // index をアラートで表示
-    alert("検索結果 index: " + index);
+    // index と 科目名 をアラートで表示
+    alert(`検索結果\nindex: ${index}\n科目名: ${subjectText}`);
 
     // subject.html に遷移
-    window.location.href = `./subject.html?selectedCourseIndex=${index}`;
+    const url = `./subject.html?selectedCourseIndex=${index}&selectedCourseName=${encodeURIComponent(subjectText)}`;
+    window.location.href = url;
 
   }
 
