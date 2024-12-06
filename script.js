@@ -58,7 +58,7 @@ function fetchReviews() {
         return;
     }
 
-    fetch(`http://192.168.92.47:5000/reviews/${courseId}`, {
+    fetch(`http://192.168.0.3:5000/reviews/${courseId}`, {
         method: 'GET',
     })
     .then(response => response.json()) //ここでjson形式のデータをjavascriptのオブジェクトに変換
