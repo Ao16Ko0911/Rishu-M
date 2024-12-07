@@ -1,0 +1,11 @@
+/* フッター */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
