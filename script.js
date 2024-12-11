@@ -7,6 +7,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
         const courseNameDisplay = document.getElementById('course_name_display');
         courseNameDisplay.textContent = `科目名: ${selectedCourseName}`;  // 科目名を表示
 
+        fetchReviews();
+
 });
 
 // 口コミを投稿する関数
@@ -18,7 +20,7 @@ function submitReview() {
     const selectedCourseName = urlParams.get('selectedCourseName');
     console.log("取得した index:", selectedCourseIndex);
     console.log(`選択された科目名: ${selectedCourseName}`);
-    courseId = selectedCourseIndex;
+    courseId = parseInt(selectedCourseIndex, 10) + 1;
     courseName = selectedCourseName;
 
     // courseId の値を確認
@@ -35,7 +37,7 @@ function submitReview() {
     }
 
     // POSTリクエストを送信
-    fetch('http://127.0.0.1:5000/submit_review', {
+    fetch('http://192.168.92.63:5000/submit_review', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -65,14 +67,22 @@ function submitReview() {
 
 // 特定の教科の口コミを取得して表示する関数
 function fetchReviews() {
-    const courseId = document.getElementById("view_course_id").value;
+        // URLからクエリパラメータを取得
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedCourseIndex = urlParams.get('selectedCourseIndex');
+    courseId = parseInt(selectedCourseIndex, 10) + 1;
+    
+    
+    
+    //const courseId = parseInt(document.getElementById("view_course_id").value, 10) + 1;
+
 
     if (!courseId) {//教科IDが入力されてない場合
         alert("教科IDを入力してください。");
         return;
     }
 
-    fetch(`http://127.0.0.1:5000/reviews/${courseId}`, {
+    fetch(`http://192.168.92.63:5000/reviews/${courseId}`, {
         method: 'GET',
     })
     .then(response => response.json()) //ここでjson形式のデータをjavascriptのオブジェクトに変換
