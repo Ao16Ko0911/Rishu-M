@@ -1,30 +1,22 @@
-// ページが読み込まれたときに実行したい処理を設定
+// ページが読み込まれたときに実行したい処理
 window.addEventListener('DOMContentLoaded', (event) => {
         // URLからクエリパラメータを取得
         const urlParams = new URLSearchParams(window.location.search);
         const selectedCourseName = urlParams.get('selectedCourseName');
+
           // course_name_display に選択された科目名を表示
         const courseNameDisplay = document.getElementById('course_name_display');
         courseNameDisplay.textContent = `科目名: ${selectedCourseName}`;  // 科目名を表示
 
         fetchReviews();
-
 });
 
 // 口コミを投稿する関数
 function submitReview() {
-
     // URLからクエリパラメータを取得
     const urlParams = new URLSearchParams(window.location.search);
     const selectedCourseIndex = urlParams.get('selectedCourseIndex');
-    const selectedCourseName = urlParams.get('selectedCourseName');
-    console.log("取得した index:", selectedCourseIndex);
-    console.log(`選択された科目名: ${selectedCourseName}`);
     courseId = parseInt(selectedCourseIndex, 10) + 1;
-    courseName = selectedCourseName;
-
-    // courseId の値を確認
-    alert("取得した courseId: " + courseId);
     
     const userId = document.getElementById("user_id").value;//こいつはいったんそのまま
     const rating = document.getElementById("rating").value;
@@ -71,8 +63,6 @@ function fetchReviews() {
     const urlParams = new URLSearchParams(window.location.search);
     const selectedCourseIndex = urlParams.get('selectedCourseIndex');
     courseId = parseInt(selectedCourseIndex, 10) + 1;
-    
-    
     
     //const courseId = parseInt(document.getElementById("view_course_id").value, 10) + 1;
 
