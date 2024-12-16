@@ -8,7 +8,7 @@ function toggleMenu() {
     if (!isVisible) {
       document.addEventListener('click', closeMenuOnOutsideClick);
     }
-    
+
   }
   
   // メニュー以外をクリックしたら閉じる処理
@@ -31,7 +31,7 @@ function toggleMenu() {
   
     let index = global_index + document.getElementById('subject').selectedIndex - 1;
     // index と 科目名 をアラートで表示
-    alert(`検索結果\nindex: ${index}\n科目名: ${subjectText}`);
+    //alert(`検索結果\nindex: ${index}\n科目名: ${subjectText}`);
 
 
     // subject.html に遷移

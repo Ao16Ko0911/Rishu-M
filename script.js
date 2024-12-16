@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         fetchReviews();
 });
 
-// 口コミを投稿する関数
+// 投稿ボタンを押したときの処理
 function submitReview() {
     // URLからクエリパラメータを取得
     const urlParams = new URLSearchParams(window.location.search);
@@ -22,20 +22,14 @@ function submitReview() {
     const rating = document.getElementById("rating").value;
     const comment = document.getElementById("comment").value;
 
-    // 入力チェック
-    if (!courseId || !userId || !rating || !comment) {
-        alert("すべてのフィールドを入力してください。");
-        return;
-    }
-
-    // POSTリクエストを送信
+    // POSTリクエストを送信 POSTはサーバにデータを送信するメソッド
     fetch('https://192.168.0.3:5000/submit_review', {
         method: 'POST',
-        headers: {
+        headers: {                               //ここはリクエストに付属する追加情報でJSON形式のデータであることを意味している
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-            course_id: courseId,
+        body: JSON.stringify({                       //このbodyがサーバーに送信するデータ 
+            course_id: courseId,                    //JSON.stringifyでJSON形式に変換している
             user_id: userId,
             rating: rating,
             comment: comment
@@ -44,11 +38,11 @@ function submitReview() {
     .then(response => response.json())
     .then(data => {
         if (data.message) {
-            alert(data.message); // 成功メッセージ
-            document.getElementById("reviewForm").reset(); // フォームをリセット
-            fetchReviews(); // 口コミ一覧を再表示
+            alert(data.message);                         // 成功メッセージ
+            document.getElementById("reviewForm").reset();          // フォームをリセット
+            fetchReviews();                                // 口コミ一覧を再表示
         } else {
-            alert('エラーが発生しました: ' + data.error); // エラーメッセージ
+            alert('エラーが発生しました: ' + data.error);      // エラーメッセージ
         }
     })
     .catch(error => {
@@ -63,31 +57,29 @@ function fetchReviews() {
     const urlParams = new URLSearchParams(window.location.search);
     const selectedCourseIndex = urlParams.get('selectedCourseIndex');
     courseId = parseInt(selectedCourseIndex, 10) + 1;
-    
-    //const courseId = parseInt(document.getElementById("view_course_id").value, 10) + 1;
-
 
     if (!courseId) {//教科IDが入力されてない場合
         alert("教科IDを入力してください。");
         return;
     }
-
+    
+    //GETはデータを取得するメソッド
     fetch(`https://192.168.0.3:5000/reviews/${courseId}`, {
         method: 'GET',
     })
-    .then(response => response.json()) //ここでjson形式のデータをjavascriptのオブジェクトに変換
-    .then(data => { //ここでdataの中身は口コミの配列になっている
-        const reviewsDiv = document.getElementById("reviews");//HTMLページ内のid="reviews"が設定されている用をを取得
-        reviewsDiv.innerHTML = ""; // 既存の口コミをクリア　これは新しい口コミを表示するため
+    .then(response => response.json())                           //ここでjson形式のデータをjavascriptのオブジェクトに変換
+    .then(data => {                                                //ここでdataの中身は口コミの配列になっている
+        const reviewsDiv = document.getElementById("reviews");             //HTMLページ内のid="reviews"が設定されている用をを取得
+        reviewsDiv.innerHTML = "";                      // 既存の口コミをクリア　これは新しい口コミを表示するため
 
-        if (data.length === 0) { //ここは口コミがなかった場合
+        if (data.length === 0) {                               //ここは口コミがなかった場合
             reviewsDiv.innerHTML = "<p>口コミがありません。</p>";
             return;
         }
 
-        data.forEach(review => { //forEachは配列の各要素に指定された処理を実行する
-            const reviewElement = document.createElement("div"); //divタグを新しく作成し、これは一つの口コミを表示するためのコンテナ
-            reviewElement.style.border = "1px solid #ccc";//これらの行は、reviewElementに対してCSSスタイルを設定している
+        data.forEach(review => {                                  //forEachは配列の各要素に指定された処理を実行する
+            const reviewElement = document.createElement("div");     //divタグを新しく作成し、これは一つの口コミを表示するためのコンテナ
+            reviewElement.style.border = "1px solid #ccc";           //これらの行は、reviewElementに対してCSSスタイルを設定している
             reviewElement.style.margin = "10px";
             reviewElement.style.padding = "10px";
 
@@ -98,7 +90,7 @@ function fetchReviews() {
                 <p><strong>投稿日:</strong> ${review.created_at}</p>
             `;//この行でdivに追加していく
 
-            reviewsDiv.appendChild(reviewElement);//ここでreviewsDivにreviewElementを追加
+            reviewsDiv.appendChild(reviewElement);                      //ここでreviewsDivにreviewElementを追加
         });
     })
     .catch(error => {
