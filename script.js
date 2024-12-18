@@ -23,24 +23,24 @@ function submitReview() {
     const comment = document.getElementById("comment").value;
 
     // POSTリクエストを送信 POSTはサーバにデータを送信するメソッド
-    fetch('https://192.168.0.3:5000/submit_review', {
+    fetch('https://192.168.92.47:5000/submit_review', {
         method: 'POST',
-        headers: {                               //ここはリクエストに付属する追加情報でJSON形式のデータであることを意味している
+        headers: {                               
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({                       //このbodyがサーバーに送信するデータ 
             course_id: courseId,                    //JSON.stringifyでJSON形式に変換している
-            user_id: userId,
+            user_id: userId,                          //教科id,ユーザid,評価,コメント
             rating: rating,
             comment: comment
         })
     })
     .then(response => response.json())
     .then(data => {
-        if (data.message) {
-            alert(data.message);                         // 成功メッセージ
+        if (data.message) {                                //data.messageがnullかどうかで判断する
+            alert(data.message);                             // サーバーのレスポンスをアラートで表示
             document.getElementById("reviewForm").reset();          // フォームをリセット
-            fetchReviews();                                // 口コミ一覧を再表示
+            fetchReviews();                                    // 口コミ一覧を再表示
         } else {
             alert('エラーが発生しました: ' + data.error);      // エラーメッセージ
         }
@@ -64,7 +64,7 @@ function fetchReviews() {
     }
     
     //GETはデータを取得するメソッド
-    fetch(`https://192.168.0.3:5000/reviews/${courseId}`, {
+    fetch(`https://192.168.92.47:5000/reviews/${courseId}`, {
         method: 'GET',
     })
     .then(response => response.json())                           //ここでjson形式のデータをjavascriptのオブジェクトに変換
@@ -72,7 +72,7 @@ function fetchReviews() {
         const reviewsDiv = document.getElementById("reviews");             //HTMLページ内のid="reviews"が設定されている用をを取得
         reviewsDiv.innerHTML = "";                      // 既存の口コミをクリア　これは新しい口コミを表示するため
 
-        if (data.length === 0) {                               //ここは口コミがなかった場合
+        if (data.length === 0) {                                   //ここは口コミがなかった場合
             reviewsDiv.innerHTML = "<p>口コミがありません。</p>";
             return;
         }
